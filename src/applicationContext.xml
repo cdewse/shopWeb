@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 配置c3p0连接池 -->
+    <bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!-- 注入属性 -->
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql:///shopping"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="root"></property>
+    </bean>
+
+    <!-- 配置sessionFactory -->
+    <bean name="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <!-- 指定数据库信息 -->
+        <property name="dataSource" ref="dataSource"></property>
+        <!-- 指定hibernate配置信息路径 -->
+        <!--可以不写-->
+
+        <!-- 1.配置hibernate基本信息 -->
+        <!--<property name="hibernateProperties">-->
+            <!--<props>-->
+                <!--<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>-->
+                <!--<prop key="hibernate.show_sql">true</prop>-->
+                <!--<prop key="hibernate.format_sql">true</prop>-->
+                <!--<prop key="hibernate.hbm2ddl.auto">update</prop>-->
+            <!--</props>-->
+        <!--</property>-->
+        <!-- 2.把映射文件引入配置 -->
+        <property name="mappingResources">
+            <list>
+                <value>Entity/User.hbm.xml</value>
+            </list>
+        </property>
+    </bean>
+    <!-- 第一步：配置事务管理器 -->
+    <bean name="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <!-- 注入sessionFactory -->
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <!-- 第二步：开启事务注解 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes><tx:method name="find*" read-only="true"/>
+            <tx:method name="add*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="*" propagation="REQUIRED" read-only="true"/>
+        </tx:attributes></tx:advice>
+    <!--<aop:config>-->
+        <!--<aop:pointcut id="serviceMethod" expression="execution(* service.*.*(..))"/>-->
+        <!--<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethod"/>-->
+    <!--</aop:config>-->
+    <!-- 创建UserAction -->
+    <bean name="userAction" class="Action.UserAction" scope="prototype">
+        <!-- 注入UserService对象-->
+        <property name="userService" ref="userService"></property>
+    </bean>
+
+    <!-- 创建UIAction -->
+    <bean name="uiAction" class="Action.UIAction" scope="prototype"></bean>
+
+    <!-- 创建hibernateTemplate对象-->
+    <bean name="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+        <!-- 注入sessionFactory -->
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <!-- 创建UserService对象 -->
+    <bean name="userService" class="Service.UserService">
+        <!-- 注入UserDao对象
+            接口 = 实现类对象
+         -->
+        <property name="userDao" ref="userDaoImpl"></property>
+    </bean>
+
+    <!-- 创建UserDao实现对象（UserDaoImpl）-->
+    <bean name="userDaoImpl" class="Dao.UserDaoImpl">
+        <!-- 注入hibernateTemplate -->
+        <property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+
+    <!--<bean name="sugar1" class="Entity.Sugar">-->
+    <!--<property name="name" value="绿箭口香糖"/>-->
+    <!--<property name="price" value="4.5"/>-->
+    <!--<property name="quality" value="12.8"/>-->
+    <!--<property name="type" value="休闲零食"/>-->
+    <!--<property name="brand" value="绿箭"/>-->
+    <!--<property name="taste" value="薄荷味"/>-->
+    <!--<property name="varities" value="口香糖"/>-->
+    <!--</bean>-->
+</beans>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="actiondemo" extends="struts-default" namespace="/">
+        <!-- class名称要跟spring的name一样-->
+        <action name="login" class="userAction" method="login">
+            <result name="success" type="redirect">index.jsp</result>
+        </action>
+        <action name="register" class="userAction" method="register">
+            <result name="success" type="redirect">index.jsp</result>
+        </action>
+    </package>
+
+    <package name="location" extends="struts-default" namespace="/">
+        <action name="location" class="uiAction">
+            <result name="login">WEB-INF/html/login.html</result>
+            <result name="register">WEB-INF/html/regist.html</result>
+            <result name="index" type="redirect">index.jsp</result>
+        </action>
+    </package>
+</struts>

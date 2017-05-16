@@ -5,7 +5,14 @@ import Service.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import org.apache.struts2.ServletActionContext;
+import org.springframework.http.HttpRequest;
+import org.springframework.orm.hibernate5.HibernateTemplate;
+import utils.Encryption;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -28,28 +35,33 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
         this.userService = userService;
     }
 
+    private HibernateTemplate hibernateTemplate;
+
+    public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
+        this.hibernateTemplate = hibernateTemplate;
+    }
+
     public String execute() {
         return "success";
     }
 
     public String login() {
 
-        //用户名123456
-        String username = "123456";
-        //密码123456
-        String password = "123456";
-
         //获取Actioncontext对象
         ActionContext context = ActionContext.getContext();
         //使用方法得到表单数据
         Map<String,Object> map= context.getParameters();
 
-        String[] username1 = (String[]) map.get("username");
-        String[] password1 = (String[]) map.get("password");
-        if (username.equals(username1[0]) && password.equals(password1[0])) {
+        HttpServletRequest request = ServletActionContext.getRequest();
+        String[] username = (String[]) map.get("username");
+        String[] password = (String[]) map.get("password");
+
+        if (userService.Login(username[0],password[0])){
             return "success";
+        }else {
+            request.setAttribute("error","用户名或密码错误");
+            return "error";
         }
-        return "index";
     }
 
     public String register() {

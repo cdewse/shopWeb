@@ -18,4 +18,8 @@ public class UserService {
         userDao.add(user);
 
     }
+
+    public String Login(String username){
+        return userDao.findPassword(username);
+    }
 }

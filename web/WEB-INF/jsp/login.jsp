@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: cdewse
+  Date: 17-5-16
+  Time: 下午7:27
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title></title>
@@ -26,7 +33,7 @@
             <li>
                 <input id="submit" type="submit" name="submit" value="登录">
                 <input id="regist" type="button" value="注册" onclick="location.href='location.action?location=register'"></button>
-                <a href="regist.html">忘记密码?</a>
+                <a href="../html/regist.html">忘记密码?</a>
             </li>
         </ol>
     </fieldset>

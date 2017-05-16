@@ -52,7 +52,7 @@ public class UserDaoImpl implements UserDao {
             return password.get(0);
         }catch (Exception e){
             System.out.print("用户名或密码错误");
-            return "用户名或密码错误";
+            return "Error";
         }
     }
 }

@@ -3,7 +3,7 @@ package Entity;
 /**
  * Created by cdewse on 17-5-7.
  */
-public class Goods {
+public class Commdity {
 
     private int id;
     private String name;

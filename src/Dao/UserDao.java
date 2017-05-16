@@ -10,4 +10,5 @@ public interface UserDao {
     public void delelte(User user);
     public void update();
     public void find();
+    public String findPassword(String username);
 }

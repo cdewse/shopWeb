@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import utils.Encryption;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by cdewse on 17-5-14.
@@ -40,5 +41,18 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void find() {
 
+    }
+
+    @Override
+    public String findPassword(String username) {
+        List<String> password;
+        //获取数据库用户信息
+        try {
+            password = (List<String>) hibernateTemplate.find("select password from User where username=?", username);
+            return password.get(0);
+        }catch (Exception e){
+            System.out.print("用户名或密码错误");
+            return "用户名或密码错误";
+        }
     }
 }

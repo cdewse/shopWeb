@@ -92,7 +92,7 @@
 
     <!--<bean name="sugar1" class="Entity.Sugar">-->
     <!--<property name="name" value="绿箭口香糖"/>-->
-    <!--<property name="price" value="4.5"/>-->
+    <!--<property nainputPricerice" value="4.5"/>-->
     <!--<property name="quality" value="12.8"/>-->
     <!--<property name="type" value="休闲零食"/>-->
     <!--<property name="brand" value="绿箭"/>-->

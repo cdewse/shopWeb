@@ -7,9 +7,10 @@ public class Goods {
 
     private int id;
     private String name;
-    private double price;
+    private int inputPrice;
+    private int outputPrice;
     private double quality;
-    private String type;
+    private int type;
     private String brand;
 
     public int getId() {
@@ -28,12 +29,20 @@ public class Goods {
         this.name = name;
     }
 
-    public double getPrice() {
-        return price;
+    public int getInputPrice() {
+        return inputPrice;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setInputPrice(int inputPrice) {
+        this.inputPrice = inputPrice;
+    }
+
+    public int getOutputPrice() {
+        return outputPrice;
+    }
+
+    public void setOutputPrice(int outputPrice) {
+        this.outputPrice = outputPrice;
     }
 
     public double getQuality() {
@@ -44,11 +53,11 @@ public class Goods {
         this.quality = quality;
     }
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
     }
 

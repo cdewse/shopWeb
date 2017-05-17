@@ -2,10 +2,13 @@ package Dao;
 
 import Entity.User;
 import org.hibernate.Session;
+import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 import utils.Encryption;
 
+import java.io.IOError;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -24,7 +27,7 @@ public class UserDaoImpl implements UserDao {
 
     @Transactional
     @Override
-    public void add(User user) {
+    public void add(User user) throws DataAccessException {
         hibernateTemplate.save(Encryption.encrypt(user));
     }
 

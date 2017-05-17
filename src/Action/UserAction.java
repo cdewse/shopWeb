@@ -2,19 +2,15 @@ package Action;
 
 import Entity.User;
 import Service.UserService;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import org.apache.struts2.ServletActionContext;
-import org.springframework.http.HttpRequest;
 import org.springframework.orm.hibernate5.HibernateTemplate;
-import utils.Encryption;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by cdewse on 17-5-7.
@@ -35,12 +31,6 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
         this.userService = userService;
     }
 
-    private HibernateTemplate hibernateTemplate;
-
-    public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
-        this.hibernateTemplate = hibernateTemplate;
-    }
-
     public String execute() {
         return "success";
     }
@@ -56,7 +46,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
         String[] username = (String[]) map.get("username");
         String[] password = (String[]) map.get("password");
 
-        if (userService.Login(username[0],password[0])){
+        if (userService.login(username[0],password[0])){
             return "success";
         }else {
             request.setAttribute("error","用户名或密码错误");
@@ -75,9 +65,13 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 //
 //        }
 
-        userService.add(user);
-        return "success";
+        if(userService.register(user)){
+            return "success";
+        }else {
+            HttpServletRequest request = ServletActionContext.getRequest();
+            request.setAttribute("registerError","账号已存在");
+            return "error";
+        }
     }
-
 
 }

@@ -18,6 +18,7 @@
     <fieldset>
         <legend><strong>请登录</strong></legend>
         <ol>
+            <li>${requestScope.get("error")}</li>
             <li>
                 <label for="username">帐号</label>
                 <input id="username" type="text" name="username"
@@ -33,7 +34,7 @@
             <li>
                 <input id="submit" type="submit" name="submit" value="登录">
                 <input id="regist" type="button" value="注册" onclick="location.href='location.action?location=register'"></button>
-                <a href="../html/regist.html">忘记密码?</a>
+                <a href="regist.jsp">忘记密码?</a>
             </li>
         </ol>
     </fieldset>

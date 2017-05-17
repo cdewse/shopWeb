@@ -3,7 +3,7 @@ package Entity;
 /**
  * Created by cdewse on 17-5-7.
  */
-public class Sugar extends Goods{
+public class Sugar extends Commdity {
     private String taste;
     private String varities;
 

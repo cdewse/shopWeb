@@ -9,17 +9,25 @@
         <!-- class名称要跟spring的name一样-->
         <action name="login" class="userAction" method="login">
             <result name="success" type="redirect">index.jsp</result>
+            <result name="error" type="dispatcher">WEB-INF/jsp/login.jsp</result>
         </action>
         <action name="register" class="userAction" method="register">
-            <result name="success" type="redirect">index.jsp</result>
+            <result name="success" type="dispatcher">WEB-INF/jsp/login.jsp</result>
+            <result name="error" type="dispatcher">WEB-INF/jsp/regist.jsp</result>
         </action>
     </package>
 
     <package name="location" extends="struts-default" namespace="/">
         <action name="location" class="uiAction">
-            <result name="login">WEB-INF/html/login.html</result>
-            <result name="register">WEB-INF/html/regist.html</result>
+            <result name="login">WEB-INF/jsp/login.jsp</result>
+            <result name="register">WEB-INF/jsp/regist.jsp</result>
             <result name="index" type="redirect">index.jsp</result>
+        </action>
+    </package>
+
+    <package name="queryAction" extends="struts-default" namespace="/">
+        <action name="queryAcion" class="queryAction">
+            <result name="success"></result>
         </action>
     </package>
 </struts>

@@ -64,20 +64,27 @@
     <!-- 创建UserAction -->
     <bean name="userAction" class="Action.UserAction" scope="prototype">
         <!-- 注入UserService对象-->
-        <property name="userService" ref="userService"></property>
+        <property name="userService" ref="userServiceImpl"></property>
+        <!--&lt;!&ndash; 注入hibernateTemplate&ndash;&gt;-->
+        <!--<property name="hibernateTemplate" ref="hibernateTemplate"></property>-->
     </bean>
 
     <!-- 创建UIAction -->
     <bean name="uiAction" class="Action.UIAction" scope="prototype"></bean>
 
+    <!--创建QueryAction对象-->
+    <bean name="queryAction" class="Action.QueryAction" scope="prototype">
+        <!--注入hibernateTemplate对象-->
+        <property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
     <!-- 创建hibernateTemplate对象-->
     <bean name="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
         <!-- 注入sessionFactory -->
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
-    <!-- 创建UserService对象 -->
-    <bean name="userService" class="Service.UserService">
+    <!-- 创建UserServiceImpl对象 -->
+    <bean name="userServiceImpl" class="Service.UserServiceImpl">
         <!-- 注入UserDao对象
             接口 = 实现类对象
          -->
@@ -90,13 +97,4 @@
         <property name="hibernateTemplate" ref="hibernateTemplate"></property>
     </bean>
 
-    <!--<bean name="sugar1" class="Entity.Sugar">-->
-    <!--<property name="name" value="绿箭口香糖"/>-->
-    <!--<property nainputPricerice" value="4.5"/>-->
-    <!--<property name="quality" value="12.8"/>-->
-    <!--<property name="type" value="休闲零食"/>-->
-    <!--<property name="brand" value="绿箭"/>-->
-    <!--<property name="taste" value="薄荷味"/>-->
-    <!--<property name="varities" value="口香糖"/>-->
-    <!--</bean>-->
 </beans>

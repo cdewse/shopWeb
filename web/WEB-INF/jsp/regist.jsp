@@ -12,13 +12,13 @@ To change this template use File | Settings | File Templates.
 	<meta charset="utf-8">
 </head>
 <body onload="setSize();loadsession();" onresize="setSize();" class="font">
-<form cid="regist" class="regist" action="register.action" method="post">
+<form id="regist" class="regist" action="register.action" method="post">
 	<fieldset>
 	<legend>注册页面</legend>
 	<table>
 		<tr>
 			<td><label>帐号</label>
-			<td colspan="4"><input type="text" name="username" cid="username"
+			<td colspan="4"><input type="text" name="username" id="username"
 				required onchange="sessionstore(this)" 
 				pattern="^[a-zA-Z][\w*]{5,10}$"  title="帐号长度需为6-10位之间，且首字母必须为英文" 
 				placeholder="input your account"></td>
@@ -26,14 +26,14 @@ To change this template use File | Settings | File Templates.
 		</tr>
 		<tr>
 			<td><label>密码</label>
-			<td colspan="4"><input type="password" name="password" cid="passwd"
+			<td colspan="4"><input type="password" name="password" id="passwd"
 				required
 				pattern="^(?![^a-zA-Z]+$)(?!\D+$).{6,15}$"  title="密码长度需为6-15位之间，且必须包含英文" 
 				placeholder="input your password"></td>
 		</tr>
 		<tr>
 			<td><label>确认密码</label>
-			<td colspan="4"><input type="password" name="passwordAck" cid="passwdAck"
+			<td colspan="4"><input type="password" name="passwordAck" id="passwdAck"
 				required 
 				pattern="^(?![^a-zA-Z]+$)(?!\D+$).{6,15}$"  title="密码长度需为6-15位之间，且必须包含英文" 
 				placeholder="input your password twice" onchange="passwdMatch();"></td>
@@ -44,12 +44,12 @@ To change this template use File | Settings | File Templates.
 			<td style="width: 20px"><input type="radio" name="sex" value="female" required></td><td><label>女</label></td>
 		</tr>
 		<tr>
-			<td><label  for="birthday">生日</label>
-			<td colspan="4"><input type="date" name="birthday" cid="birthday" value="2000-01-01" required onchange="sessionstore(this)"></td>
+			<td><label>生日</label>
+			<td colspan="4"><input type="date" name="birthday" id="birthday" value="2000-01-01" required onchange="sessionstore(this)"></td>
 		</tr>
 		<tr>
 			<td><label>邮箱</label>
-			<td colspan="4"><input cid="email" type="email" name="email"
+			<td colspan="4"><input id="email" type="email" name="email"
 				required onchange="sessionstore(this)" 
 				placeholder="user@example.com"></td>
 		</tr>

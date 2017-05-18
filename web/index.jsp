@@ -10,9 +10,6 @@
   <head>
     <title>$Title$</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script>
-      this.S
-    </script>
   </head>
   <body class="container box-zero">
     <div class="container">

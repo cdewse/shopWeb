@@ -14,11 +14,17 @@ import java.util.Map;
  */
 public class UIAction extends ActionSupport {
 
-        public String execute() {
-            ActionContext context = ActionContext.getContext();
-            Map<String, Object> map = context.getParameters();
-            String[] location = (String[]) map.get("location");
-            switch (location[0]) {
+        private String location;
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String execute() {
+//            ActionContext context = ActionContext.getContext();
+//            Map<String, Object> map = context.getParameters();
+//            String[] location = (String[]) map.get("location");
+            switch (location) {
                 case "login": return "login";
                 case "register":return "register";
                 default: return "index";

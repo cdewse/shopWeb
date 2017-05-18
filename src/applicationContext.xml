@@ -38,6 +38,7 @@
         <property name="mappingResources">
             <list>
                 <value>Entity/User.hbm.xml</value>
+                <value>Entity/Commodity.hbn.xml</value>
             </list>
         </property>
     </bean>
@@ -58,7 +59,7 @@
             <tx:method name="*" propagation="REQUIRED" read-only="true"/>
         </tx:attributes></tx:advice>
     <!--<aop:config>-->
-        <!--<aop:pointcut id="serviceMethod" expression="execution(* service.*.*(..))"/>-->
+        <!--<aop:pointcidt id="serviceMethod" expression="execution(* service.*.*(..))"/>-->
         <!--<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethod"/>-->
     <!--</aop:config>-->
     <!-- 创建UserAction -->
@@ -74,8 +75,10 @@
 
     <!--创建QueryAction对象-->
     <bean name="queryAction" class="Action.QueryAction" scope="prototype">
-        <!--注入hibernateTemplate对象-->
-        <property name="hibernateTemplate" ref="hibernateTemplate"></property>
+        <!--&lt;!&ndash;注入hibernateTemplate对象&ndash;&gt;-->
+        <!--<property name="hibernateTemplate" ref="hibernateTemplate"></property>-->
+        <!--注入CommodityManageService-->
+        <property name="commodityManageService" ref="commodityManageServiceImpl"></property>
     </bean>
     <!-- 创建hibernateTemplate对象-->
     <bean name="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
@@ -97,4 +100,15 @@
         <property name="hibernateTemplate" ref="hibernateTemplate"></property>
     </bean>
 
+    <!--创建CommdityDaoImpl对象-->
+    <bean name="commodityDaoImpl" class="Dao.CommodityDaoImpl">
+        <!--注入hibernateTemplate-->
+        <property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+
+    <!--创建CommodityManageServiceImpl对象-->
+    <bean name="commodityManageServiceImpl" class="Service.CommodityManageServiceImpl">
+        <!--注入commodityDao对象-->
+        <property name="commodityDao" ref="commodityDaoImpl"></property>
+    </bean>
 </beans>

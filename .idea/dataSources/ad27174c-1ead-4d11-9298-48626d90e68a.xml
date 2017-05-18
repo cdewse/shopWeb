@@ -43,119 +43,123 @@
       <ColNames>username</ColNames>
       <UnderlyingIndexName>Admin_username_uindex</UnderlyingIndexName>
     </key>
-    <column id="17" parent="8" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-    </column>
-    <column id="18" parent="8" name="CName">
+    <column id="17" parent="8" name="CName">
       <Position>2</Position>
       <DataType>varchar(30)|0</DataType>
     </column>
-    <column id="19" parent="8" name="Brand">
+    <column id="18" parent="8" name="Brand">
       <Position>3</Position>
       <DataType>varchar(30)|0</DataType>
     </column>
-    <column id="20" parent="8" name="InputPrice">
+    <column id="19" parent="8" name="InputPrice">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="21" parent="8" name="OutputPrice">
+    <column id="20" parent="8" name="OutputPrice">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="22" parent="8" name="Quality">
+    <column id="21" parent="8" name="Quality">
       <Position>6</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="23" parent="8" name="Picture">
+    <column id="22" parent="8" name="Picture">
       <Position>7</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="24" parent="8" name="Amount">
+    <column id="23" parent="8" name="Amount">
       <Position>8</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <index id="25" parent="8" name="t_sugar_id_uindex">
-      <ColNames>id</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="26" parent="8" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <key id="27" parent="8" name="t_sugar_id_uindex">
-      <ColNames>id</ColNames>
-      <UnderlyingIndexName>t_sugar_id_uindex</UnderlyingIndexName>
-    </key>
-    <column id="28" parent="9" name="CategoryID">
+    <column id="24" parent="8" name="Type">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="25" parent="8" name="CID">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="29" parent="9" name="CategoryName">
+    <index id="26" parent="8" name="t_sugar_id_uindex">
+      <ColNames>CID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="27" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>CID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="28" parent="8" name="t_sugar_id_uindex">
+      <ColNames>CID</ColNames>
+      <UnderlyingIndexName>t_sugar_id_uindex</UnderlyingIndexName>
+    </key>
+    <column id="29" parent="9" name="CategoryID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="30" parent="9" name="CategoryName">
       <Position>2</Position>
       <DataType>varchar(32)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="30" parent="9" name="PRIMARY">
+    <key id="31" parent="9" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>CategoryID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="31" parent="10" name="id">
+    <column id="32" parent="10" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="32" parent="10" name="username">
+    <column id="33" parent="10" name="username">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="33" parent="10" name="password">
+    <column id="34" parent="10" name="password">
       <Position>3</Position>
       <DataType>varchar(24)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="34" parent="10" name="sex">
+    <column id="35" parent="10" name="sex">
       <Position>4</Position>
       <DataType>char(6)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="35" parent="10" name="birthday">
+    <column id="36" parent="10" name="birthday">
       <Position>5</Position>
       <DataType>date|0</DataType>
     </column>
-    <column id="36" parent="10" name="email">
+    <column id="37" parent="10" name="email">
       <Position>6</Position>
       <DataType>varchar(30)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="37" parent="10" name="t_user_email_uindex">
+    <index id="38" parent="10" name="t_user_email_uindex">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="38" parent="10" name="t_user_username_uindex">
+    <index id="39" parent="10" name="t_user_username_uindex">
       <ColNames>username</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="39" parent="10" name="PRIMARY">
+    <key id="40" parent="10" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="40" parent="10" name="t_user_username_uindex">
+    <key id="41" parent="10" name="t_user_username_uindex">
       <ColNames>username</ColNames>
       <UnderlyingIndexName>t_user_username_uindex</UnderlyingIndexName>
     </key>
-    <key id="41" parent="10" name="t_user_email_uindex">
+    <key id="42" parent="10" name="t_user_email_uindex">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>t_user_email_uindex</UnderlyingIndexName>
     </key>

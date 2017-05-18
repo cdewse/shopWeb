@@ -7,8 +7,6 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import org.apache.struts2.ServletActionContext;
-import org.springframework.orm.hibernate5.HibernateTemplate;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
@@ -47,6 +45,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
         String[] password = (String[]) map.get("password");
 
         if (userService.login(username[0],password[0])){
+            request.getSession().setAttribute("username",username[0]);
             return "success";
         }else {
             request.setAttribute("error","用户名或密码错误");
@@ -64,11 +63,10 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 //        for (String key : keys) {
 //
 //        }
-
+        HttpServletRequest request = ServletActionContext.getRequest();
         if(userService.register(user)){
             return "success";
         }else {
-            HttpServletRequest request = ServletActionContext.getRequest();
             request.setAttribute("registerError","账号已存在");
             return "error";
         }

@@ -1,15 +1,12 @@
 package Dao;
 
 import Entity.User;
-import org.hibernate.Session;
+
 import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 import utils.Encryption;
 
-import java.io.IOError;
-import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
 /**

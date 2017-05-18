@@ -5,7 +5,7 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <package name="actiondemo" extends="struts-default" namespace="/">
+    <package name="actionDemo" extends="struts-default" namespace="/">
         <!-- class名称要跟spring的name一样-->
         <action name="login" class="userAction" method="login">
             <result name="success" type="redirect">index.jsp</result>
@@ -26,8 +26,8 @@
     </package>
 
     <package name="queryAction" extends="struts-default" namespace="/">
-        <action name="queryAcion" class="queryAction">
-            <result name="success"></result>
+        <action name="queryAction" class="queryAction">
+            <result name="success">WEB-INF/jsp/commodityManage.jsp</result>
         </action>
     </package>
 </struts>

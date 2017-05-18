@@ -21,19 +21,19 @@
             <li>${requestScope.get("error")}</li>
             <li>
                 <label for="username">帐号</label>
-                <input id="username" type="text" name="username"
+                <input cid="username" type="text" name="username"
                        required
                        placeholder="Input your accont">
             </li>
             <li>
                 <label for="passwd">密码</label>
-                <input id="passwd" type="password" name="password"
+                <input cid="passwd" type="password" name="password"
                        required
                        placeholder="Input your password">
             </li>
             <li>
-                <input id="submit" type="submit" name="submit" value="登录">
-                <input id="regist" type="button" value="注册" onclick="location.href='location.action?location=register'"></button>
+                <input cid="submit" type="submit" name="submit" value="登录">
+                <input cid="regist" type="button" value="注册" onclick="location.href='location.action?location=register'"></button>
                 <a href="regist.jsp">忘记密码?</a>
             </li>
         </ol>

@@ -1,0 +1,11 @@
+<taglib>
+    <tlib-version>1.0</tlib-version>
+    <jsp-version>2.0</jsp-version>
+    <short-name>Example TLD</short-name>
+    <uri>http://www.cdewse.com/tags</uri>
+    <tag>
+        <name>ListCommodity</name>
+        <tag-class>Web.tag.ListCommodity</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+</taglib>

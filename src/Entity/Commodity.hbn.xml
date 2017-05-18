@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <!-- 1配置类和表对应
+          class标签
+          name属性：实体类全路径
+          table属性：数据库表名称
+    -->
+    <class name="Entity.Commodity" table="CommodityInfo">
+        <id name="cid" column="CID">
+            <generator class="increment"></generator>
+        </id>
+        <property name="name" column="CName" type="java.lang.String"></property>
+        <property name="brand" column="Brand" type="java.lang.String"></property>
+        <property name="inputPrice" column="InputPrice" type="int"></property>
+        <property name="outputPrice" column="OutputPrice" type="int"></property>
+        <property name="quality" column="Quality" type="double"></property>
+        <property name="picture" column="Picture" type="java.lang.String"></property>
+        <property name="amount" column="Amount" type="int"></property>
+        <property name="type" column="Type" type="int"></property>
+    </class>
+</hibernate-mapping>

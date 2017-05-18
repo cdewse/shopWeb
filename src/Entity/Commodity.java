@@ -3,22 +3,24 @@ package Entity;
 /**
  * Created by cdewse on 17-5-7.
  */
-public class Commdity {
+public class Commodity {
 
-    private int id;
+    private int cid;
     private String name;
     private int inputPrice;
     private int outputPrice;
     private double quality;
+    private String picture;
+    private int amount;
     private int type;
     private String brand;
 
-    public int getId() {
-        return id;
+    public int getCid() {
+        return cid;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCid(int cid) {
+        this.cid = cid;
     }
 
     public String getName() {
@@ -51,6 +53,22 @@ public class Commdity {
 
     public void setQuality(double quality) {
         this.quality = quality;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public int getType() {

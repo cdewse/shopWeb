@@ -21,8 +21,8 @@
           <div class="col-3"></div>
           <div class="col-3"></div>
           <div class="col-3">
-            <a cid="login" href="location.action?location=login">登录</a>
-            <a href="location.action?location=register">注册</a>
+            <a cid="login" href="${pageContext.request.contextPath}/location.action?location=login">登录</a>
+            <a href="${pageContext.request.contextPath}/location.action?location=register">注册</a>
             ${username}
           </div>
           <div class="col-3"></div>

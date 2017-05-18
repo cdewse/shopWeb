@@ -1,4 +1,4 @@
-<%@ taglib prefix="s" uri="/struts-tags" %>
+<%--<%@ taglib prefix="s" uri="/struts-tags" %>--%>
 <%--
   Created by IntelliJ IDEA.
   User: cdewse
@@ -19,13 +19,14 @@
           <div class="col-3"></div>
           <div class="col-3"></div>
           <div class="col-3">
-            <a cid="login" href="<s:url action="location">
-                                   <s:param name="location">login</s:param>
-                                 </s:url>">登录</a>
-            <a href="<s:url action="location">
-                       <s:param name="location">register</s:param>
-                     </s:url>">注册</a>
-            ${username}
+            <%--<a cid="login" href="<s:url action="location">--%>
+                                   <%--<s:param name="location">login</s:param>--%>
+                                 <%--</s:url>">登录</a>--%>
+            <%--<a href="<s:url action="location">--%>
+                       <%--<s:param name="location">register</s:param>--%>
+                     <%--</s:url>">注册</a>--%>
+            <%--${username}--%>
+            afsafsafsafsafasfas
           </div>
           <div class="col-3"></div>
         </div>

@@ -16,6 +16,8 @@
         <property name="jdbcUrl" value="jdbc:mysql:///shopping"></property>
         <property name="user" value="root"></property>
         <property name="password" value="root"></property>
+        <property name="initialPoolSize" value="20"></property>
+        <property name="maxPoolSize" value="30"></property>
     </bean>
 
     <!-- 配置sessionFactory -->
@@ -23,17 +25,18 @@
         <!-- 指定数据库信息 -->
         <property name="dataSource" ref="dataSource"></property>
         <!-- 指定hibernate配置信息路径 -->
+        <!--<property name="configLocation" value="hibernate.cfg.xml"></property>-->
         <!--可以不写-->
 
         <!-- 1.配置hibernate基本信息 -->
-        <!--<property name="hibernateProperties">-->
-            <!--<props>-->
-                <!--<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>-->
-                <!--<prop key="hibernate.show_sql">true</prop>-->
-                <!--<prop key="hibernate.format_sql">true</prop>-->
-                <!--<prop key="hibernate.hbm2ddl.auto">update</prop>-->
-            <!--</props>-->
-        <!--</property>-->
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
         <!-- 2.把映射文件引入配置 -->
         <property name="mappingResources">
             <list>
@@ -51,13 +54,13 @@
     <!-- 第二步：开启事务注解 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">
-        <tx:attributes><tx:method name="find*" read-only="true"/>
-            <tx:method name="add*" propagation="REQUIRED"/>
-            <tx:method name="delete*" propagation="REQUIRED"/>
-            <tx:method name="update*" propagation="REQUIRED"/>
-            <tx:method name="*" propagation="REQUIRED" read-only="true"/>
-        </tx:attributes></tx:advice>
+    <!--<tx:advice id="txAdvice" transaction-manager="transactionManager">-->
+        <!--<tx:attributes><tx:method name="find*" read-only="true"/>-->
+            <!--<tx:method name="add*" propagation="REQUIRED"/>-->
+            <!--<tx:method name="delete*" propagation="REQUIRED"/>-->
+            <!--<tx:method name="update*" propagation="REQUIRED"/>-->
+            <!--<tx:method name="*" propagation="REQUIRED" read-only="true"/>-->
+        <!--</tx:attributes></tx:advice>-->
     <!--<aop:config>-->
         <!--<aop:pointcidt id="serviceMethod" expression="execution(* service.*.*(..))"/>-->
         <!--<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethod"/>-->

@@ -19,6 +19,7 @@ public class Encryption {
     }
 
     public static String encrypt(String str) {
+
         MessageDigest md = null;
         try {
             md = MessageDigest.getInstance("md5");  //获取加密方式

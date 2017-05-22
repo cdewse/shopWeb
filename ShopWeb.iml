@@ -14,7 +14,8 @@
         <configuration>
           <fileset id="s2fileset" name="Default File Set " removed="false">
             <file>file://$MODULE_DIR$/src/struts.xml</file>
-            <file>jar://$MODULE_DIR$/lib/struts2-core.jar!/struts-default.xml</file>
+            <file>jar://$MODULE_DIR$/web/WEB-INF/lib/struts2-core.jar!/struts-default.xml</file>
+            <file>jar://$MODULE_DIR$/web/WEB-INF/lib/struts2-spring-plugin-2.3.4.1.jar!/struts-plugin.xml</file>
           </fileset>
           <propertiesKeys disabled="false" />
         </configuration>
@@ -23,9 +24,11 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="noname-applicationContext.xml@1255" value="ad27174c-1ead-4d11-9298-48626d90e68a" />
+          <unit-entry name="hibernate.cfg.xml" value="ad27174c-1ead-4d11-9298-48626d90e68a" />
+          <unit-entry name="noname-applicationContext.xml@1379" value="ad27174c-1ead-4d11-9298-48626d90e68a" />
         </datasource-map>
         <naming-strategy-map />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate.cfg.xml" />
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">

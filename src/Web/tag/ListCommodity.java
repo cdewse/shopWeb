@@ -47,7 +47,6 @@ public class ListCommodity extends TagSupport{
                         "</tr>");
 
             }
-            out.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

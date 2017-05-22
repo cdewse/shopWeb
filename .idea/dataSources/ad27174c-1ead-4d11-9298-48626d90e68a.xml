@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="shopping@localhost">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
     <root id="1"/>
     <schema id="2" parent="1" name="shopping">
       <Current>1</Current>
@@ -87,79 +87,88 @@
       <ColNames>CID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="27" parent="8" name="PRIMARY">
+    <index id="27" parent="8" name="CommodityInfo_Commodity_Category_CategoryID_fk">
+      <ColNames>Type</ColNames>
+    </index>
+    <key id="28" parent="8" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>CID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="28" parent="8" name="t_sugar_id_uindex">
+    <key id="29" parent="8" name="t_sugar_id_uindex">
       <ColNames>CID</ColNames>
       <UnderlyingIndexName>t_sugar_id_uindex</UnderlyingIndexName>
     </key>
-    <column id="29" parent="9" name="CategoryID">
+    <foreign-key id="30" parent="8" name="CommodityInfo_Commodity_Category_CategoryID_fk">
+      <ColNames>Type</ColNames>
+      <RefSchemaName>shopping</RefSchemaName>
+      <RefTableName>Commodity_Category</RefTableName>
+      <RefColNames>CategoryID</RefColNames>
+    </foreign-key>
+    <column id="31" parent="9" name="CategoryID">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="30" parent="9" name="CategoryName">
+    <column id="32" parent="9" name="CategoryName">
       <Position>2</Position>
       <DataType>varchar(32)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="31" parent="9" name="PRIMARY">
+    <key id="33" parent="9" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>CategoryID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="32" parent="10" name="id">
+    <column id="34" parent="10" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="33" parent="10" name="username">
+    <column id="35" parent="10" name="username">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="34" parent="10" name="password">
+    <column id="36" parent="10" name="password">
       <Position>3</Position>
       <DataType>varchar(24)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="35" parent="10" name="sex">
+    <column id="37" parent="10" name="sex">
       <Position>4</Position>
       <DataType>char(6)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="36" parent="10" name="birthday">
+    <column id="38" parent="10" name="birthday">
       <Position>5</Position>
       <DataType>date|0</DataType>
     </column>
-    <column id="37" parent="10" name="email">
+    <column id="39" parent="10" name="email">
       <Position>6</Position>
       <DataType>varchar(30)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="38" parent="10" name="t_user_email_uindex">
+    <index id="40" parent="10" name="t_user_email_uindex">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="39" parent="10" name="t_user_username_uindex">
+    <index id="41" parent="10" name="t_user_username_uindex">
       <ColNames>username</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="40" parent="10" name="PRIMARY">
+    <key id="42" parent="10" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="41" parent="10" name="t_user_username_uindex">
+    <key id="43" parent="10" name="t_user_username_uindex">
       <ColNames>username</ColNames>
       <UnderlyingIndexName>t_user_username_uindex</UnderlyingIndexName>
     </key>
-    <key id="42" parent="10" name="t_user_email_uindex">
+    <key id="44" parent="10" name="t_user_email_uindex">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>t_user_email_uindex</UnderlyingIndexName>
     </key>

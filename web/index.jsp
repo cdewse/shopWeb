@@ -19,7 +19,7 @@
           <div class="col-3"></div>
           <div class="col-3"></div>
           <div class="col-3">
-            <a cid="login" href="<s:url action="location">
+            <a id="login" href="<s:url action="location">
                                    <s:param name="location">login</s:param>
                                  </s:url>">登录</a>
             <a href="<s:url action="location">

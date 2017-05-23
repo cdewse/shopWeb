@@ -84,8 +84,9 @@
         <property name="commodityManageService" ref="commodityManageServiceImpl"></property>
     </bean>
     <!--创建CommodityAction-->
-    <bean name="" class="Action.CommodityAction" scope="prototype">
+    <bean name="commodityAction" class="Action.CommodityAction" scope="prototype">
         <property name="uploadService" ref="uploadServiceImpl"></property>
+        <property name="commodityManageService" ref="commodityManageServiceImpl"></property>
     </bean>
 
     <!-- 创建hibernateTemplate对象-->
@@ -108,7 +109,7 @@
         <!-- 注入hibernateTemplate -->
         <property name="hibernateTemplate" ref="hibernateTemplate"></property>
     </bean>
-    <!--创建CommdityDaoImpl对象-->
+    <!--创建CommodityDaoImpl对象-->
     <bean name="commodityDaoImpl" class="Dao.CommodityDaoImpl">
         <!--注入hibernateTemplate-->
         <property name="hibernateTemplate" ref="hibernateTemplate"></property>

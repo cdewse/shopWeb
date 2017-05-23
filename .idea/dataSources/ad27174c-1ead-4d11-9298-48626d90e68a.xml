@@ -67,7 +67,7 @@
     </column>
     <column id="22" parent="8" name="Picture">
       <Position>7</Position>
-      <DataType>int(11)|0</DataType>
+      <DataType>varchar(30)|0</DataType>
     </column>
     <column id="23" parent="8" name="Amount">
       <Position>8</Position>

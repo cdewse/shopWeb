@@ -9,8 +9,10 @@ import java.io.IOException;
 
 /**
  * Created by cdewse on 17-5-23.
+ * 第一次访问会出现创建文件失败
  */
 public class UploadServiceImpl implements UploadService{
+
     @Override
     public String uploadCimage(String imageName,String image) throws IOException{
         //通过名称得到图片格式
@@ -21,9 +23,9 @@ public class UploadServiceImpl implements UploadService{
         String base64 = image.substring(image.indexOf(',')+1).replace(' ','+');
         //获取base64解码器
         BASE64Decoder base64Decoder = new BASE64Decoder();
-        //创建对应的文件
-        String fileName = ImgIdGenerator.getUUID() + imageType;
-        File file = new File("/home/cdewse/IdeaProjects/ShopWeb/web/image/" + fileName);
+        //创建对应的文件，java库的base64编码会有斜杠所以直接用来命名会出问题，故要替换斜杠
+        String fileName = (ImgIdGenerator.getUUID() + imageType).replace('/','|');
+        File file = new File("/home/cdewse/imagetemp/" + fileName);
         file.createNewFile();
         //得到解码后的字节数组
         byte[] bytes = base64Decoder.decodeBuffer(base64);

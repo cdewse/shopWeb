@@ -7,6 +7,6 @@ import Entity.User;
  */
 public interface UserService {
 
-    public boolean register(User user);
-    public boolean login(String username, String password);
+    boolean register(User user);
+    boolean login(String username, String password);
 }

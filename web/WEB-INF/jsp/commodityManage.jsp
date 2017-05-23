@@ -25,7 +25,7 @@
             fileReader.onload = function(e) { //小写
                 preView.src = e.target.result;
                 //post方法，第二个表示url地址，第三个表示同步还是异步，true异步
-                request.open("post","addAction",true);
+                request.open("post","uploadAction",true);
                 //post方法要自己写请求头
                 request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
                 //发送数据
@@ -55,7 +55,7 @@
             <%--<ex:ListCommodity/>--%>
         <%--</table>--%>
     <%--</form>--%>
-    <form action="uploadAction.action">
+    <form action="addCommodity.action">
         <table>
             <tr>
                 <td><label><span>商品名称</span></label></td>

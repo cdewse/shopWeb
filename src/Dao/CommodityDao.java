@@ -1,15 +1,17 @@
 package Dao;
 
+import Entity.Commodity;
+
 import java.util.List;
 
 /**
  * Created by cdewse on 17-5-16.
  */
 public interface CommodityDao {
-    public void add();
-    public void delete();
-    public void update();
-    public String find();
-    public List getAll();
-    public List<String> getCategory();
+    void add(Commodity commodity);
+    void delete();
+    void update();
+    String find();
+    List getAll();
+    List<String> getCategory();
 }

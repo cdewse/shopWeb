@@ -1,5 +1,6 @@
 package Dao;
 
+import Entity.Commodity;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,7 +11,7 @@ import java.util.List;
  * Created by cdewse on 17-5-16.
  */
 
-
+@Transactional
 public class CommodityDaoImpl implements CommodityDao {
 
     private HibernateTemplate hibernateTemplate;
@@ -19,10 +20,10 @@ public class CommodityDaoImpl implements CommodityDao {
         this.hibernateTemplate = hibernateTemplate;
     }
 
-    @Transactional
+
     @Override
-    public void add() {
-        hibernateTemplate.find("from Commodity");
+    public void add(Commodity commodity) {
+        hibernateTemplate.save(commodity);
     }
 
     @Override

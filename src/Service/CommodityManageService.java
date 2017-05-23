@@ -1,6 +1,7 @@
 package Service;
 
 import Dao.CommodityDao;
+import Entity.Commodity;
 
 import java.util.List;
 
@@ -10,6 +11,9 @@ import java.util.List;
 public interface CommodityManageService<T> {
 
 
-    public List<T> queryAll(); //查询所有商品信息
+    List<T> queryAll(); //查询所有商品信息
+
+    boolean addCommodity(Commodity commodity);
+
 
 }

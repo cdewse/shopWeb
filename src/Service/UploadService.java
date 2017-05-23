@@ -7,5 +7,5 @@ import java.io.IOException;
  */
 public interface UploadService {
 
-    public String uploadCimage(String imageName,String image) throws IOException;//上传商品图片同时返回图片名称
+    String uploadCimage(String imageName,String image) throws IOException;//上传商品图片同时返回图片名称
 }

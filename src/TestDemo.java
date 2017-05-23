@@ -8,12 +8,15 @@ import utils.ImgIdGenerator;
 import java.io.*;
 import java.util.List;
 
+import org.junit.Test;
+import utils.MoveFile;
+
 /**
  * Created by cdewse on 17-5-22.
  */
-public class Test {
+public class TestDemo {
 
-    @org.junit.Test
+    @Test
     public void test1(){
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         HibernateTemplate hibernateTemplate = (HibernateTemplate) context.getBean("hibernateTemplate");
@@ -21,7 +24,7 @@ public class Test {
         System.out.println(list.get(0));
     }
 
-    @org.junit.Test
+    @Test
     public void test2() throws IOException {
         FileInputStream fileInputStream = new FileInputStream("/home/cdewse/桌面/jpg/2017-05-06 15-28-54屏幕截图.png");
         //竹篮
@@ -40,11 +43,19 @@ public class Test {
         fop.close();
     }
 
-    @org.junit.Test
+    @Test
     public void getUUIDTest(){
         BASE64Encoder encoder = new BASE64Encoder();
 //        encoder.encode(ImgIdGenerator.getUUID().getBytes());
         System.out.println(ImgIdGenerator.getUUID());
         System.out.println(Encryption.encrypt(ImgIdGenerator.getUUID()));
+    }
+
+    @Test
+    public void moveFileTest(){
+        String initPath = "/home/cdewse/imagetemp";
+        String aimPath  = "/home/cdewse/CommodityImage";
+        String fileName = "0duiKWvpHYEekOEG7yc|YQ==.png";
+        MoveFile.move(initPath,aimPath,fileName);
     }
 }

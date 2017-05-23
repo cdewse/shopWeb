@@ -1,6 +1,8 @@
 package Service;
 
 import Dao.CommodityDao;
+import Entity.Commodity;
+import org.springframework.dao.DataAccessException;
 
 import java.util.List;
 
@@ -20,5 +22,15 @@ public class CommodityManageServiceImpl<T> implements CommodityManageService<T> 
     public List<T> queryAll() {
         List list = commodityDao.getAll();
         return list;
+    }
+
+    @Override
+    public boolean addCommodity(Commodity commodity) {
+        try {
+            commodityDao.add(commodity);
+        } catch (DataAccessException e) {
+            return false;
+        }
+        return true;
     }
 }

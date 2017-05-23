@@ -32,7 +32,9 @@
     </package>
 
     <package name="commodityAction" extends="struts-default" namespace="/">
-        <action name="addAction" class="Action.CommodityAction">
+        <action name="uploadAction" class="commodityAction"></action>
+        <action name="addCommodity" class="commodityAction" method="add">
+            <result name="success">WEB-INF/jsp/commodityManage.jsp</result>
         </action>
     </package>
 </struts>

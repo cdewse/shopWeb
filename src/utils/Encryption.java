@@ -10,6 +10,7 @@ import java.util.Base64;
 
 /**
  * Created by cdewse on 17-5-15.
+ * 简单加密
  */
 public class Encryption {
     public static User encrypt(User user) { //表单密码加密

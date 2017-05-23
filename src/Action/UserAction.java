@@ -22,6 +22,8 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
     public User getModel() {
         return user;
     }
+
+
     //注入userService对象
     private UserService userService;
 

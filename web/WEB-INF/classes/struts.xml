@@ -33,8 +33,6 @@
 
     <package name="commodityAction" extends="struts-default" namespace="/">
         <action name="addAction" class="Action.CommodityAction">
-            <result></result>
         </action>
-
     </package>
 </struts>

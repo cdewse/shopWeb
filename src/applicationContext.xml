@@ -65,6 +65,7 @@
         <!--<aop:pointcidt id="serviceMethod" expression="execution(* service.*.*(..))"/>-->
         <!--<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethod"/>-->
     <!--</aop:config>-->
+
     <!-- 创建UserAction -->
     <bean name="userAction" class="Action.UserAction" scope="prototype">
         <!-- 注入UserService对象-->
@@ -72,7 +73,6 @@
         <!--&lt;!&ndash; 注入hibernateTemplate&ndash;&gt;-->
         <!--<property name="hibernateTemplate" ref="hibernateTemplate"></property>-->
     </bean>
-
     <!-- 创建UIAction -->
     <bean name="uiAction" class="Action.UIAction" scope="prototype"></bean>
 
@@ -83,11 +83,18 @@
         <!--注入CommodityManageService-->
         <property name="commodityManageService" ref="commodityManageServiceImpl"></property>
     </bean>
+    <!--创建CommodityAction-->
+    <bean name="" class="Action.CommodityAction" scope="prototype">
+        <property name="uploadService" ref="uploadServiceImpl"></property>
+    </bean>
+
     <!-- 创建hibernateTemplate对象-->
     <bean name="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
         <!-- 注入sessionFactory -->
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
+
+
 
     <!-- 创建UserServiceImpl对象 -->
     <bean name="userServiceImpl" class="Service.UserServiceImpl">
@@ -96,22 +103,21 @@
          -->
         <property name="userDao" ref="userDaoImpl"></property>
     </bean>
-
     <!-- 创建UserDao实现对象（UserDaoImpl）-->
     <bean name="userDaoImpl" class="Dao.UserDaoImpl">
         <!-- 注入hibernateTemplate -->
         <property name="hibernateTemplate" ref="hibernateTemplate"></property>
     </bean>
-
     <!--创建CommdityDaoImpl对象-->
     <bean name="commodityDaoImpl" class="Dao.CommodityDaoImpl">
         <!--注入hibernateTemplate-->
         <property name="hibernateTemplate" ref="hibernateTemplate"></property>
     </bean>
-
     <!--创建CommodityManageServiceImpl对象-->
     <bean name="commodityManageServiceImpl" class="Service.CommodityManageServiceImpl">
         <!--注入commodityDao对象-->
         <property name="commodityDao" ref="commodityDaoImpl"></property>
     </bean>
+    <!--创建UploadServiceImpl对象-->
+    <bean name="uploadServiceImpl" class="Service.UploadServiceImpl"></bean>
 </beans>

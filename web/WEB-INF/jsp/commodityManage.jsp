@@ -30,7 +30,6 @@
                 request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
                 //发送数据
                 request.send("image="+e.target.result+"&imageName="+obj.value);
-
             };
             //定义回调函数
             function callback() {
@@ -41,7 +40,8 @@
                         //获取服务器端返回的数据
                         //获取服务器端输出的纯文本数据
                         var responseText = request.responseText;
-                        alert(responseText);
+                        var picture = $('#picture')[0];
+                        picture.value = responseText;
                     }
                 }
             }
@@ -55,7 +55,7 @@
             <%--<ex:ListCommodity/>--%>
         <%--</table>--%>
     <%--</form>--%>
-    <form action="addAction.action">
+    <form action="uploadAction.action">
         <table>
             <tr>
                 <td><label><span>商品名称</span></label></td>
@@ -81,18 +81,21 @@
                            pattern="^\d+(.\d+)\d*$"></td>
             </tr>
             <tr>
-                <td><label><span>图片</span></label></td>
-                <td><input type="file" name="imgSelect" alt="">" accept=".jpg,.png" onchange="upLoad(this)"></td>
-                <td><span style="height: 30px;width: 80px;"><img id="preView" src=""></span></td>
-                <td><input type="hidden" name="picture" value=""></td>
-            </tr>
-            <tr>
                 <td><label><span>货存</span></label></td>
                 <td><input type="number" name="amount" required></td>
             </tr>
             <tr>
                 <td><label><span>类型</span></label></td>
                 <td><input type="number" name="type" required></td>
+            </tr>
+            <tr>
+                <td><label><span>图片</span></label></td>
+                <td><input type="file" name="imgSelect" accept=".jpg,.png" onchange="upLoad(this)"></td>
+                <td><input type="hidden" id="picture" name="picture" value=""></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><span style="height: 30px;width: 80px;"><img id="preView" src=""></span></td>
             </tr>
             <tr>
                 <td><input type="submit"></td>
